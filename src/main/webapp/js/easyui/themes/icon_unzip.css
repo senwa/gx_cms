@@ -1,0 +1,481 @@
+.icon-blank{
+	background:url('icons/blank.gif') no-repeat center center;
+}
+.icon-mail{
+	background:url('icons/ic.png') no-repeat;
+	background-position: -1061px 0;
+}
+
+.icon-add{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-901px 0;
+}
+.icon-addBatch{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-901px 0;	
+}
+.icon-edit{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-37px 0;
+}
+.icon-clear{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-581px 0;
+}
+.icon-remove{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-981px 0;
+}
+.icon-save{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-757px 0;
+}
+.icon-cut{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-885px 0;
+}
+.icon-ok{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-181px 0;
+}
+.icon-no{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-197px 0;
+}
+.icon-cancel{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-501px 0;
+}
+.icon-reload{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-373px 0;
+}
+.icon-search{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-469px 0;
+}
+.icon-print{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-85px 0;
+}
+.icon-help{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-853px 0;
+}
+.icon-undo{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-325px 0;
+}
+.icon-redo{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-357px 0;
+}
+.icon-back{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-709px 0;
+}
+.icon-sum{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-229px 0;
+}
+.icon-tip{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-245px 0;
+}
+.icon-filter{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-773px 0;
+}
+.icon-man{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-165px 0;
+}
+.icon-lock{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-837px 0;
+}
+.icon-map{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-149px 0;
+}
+
+.icon-mini-add{
+	background:url('icons/ic.png') no-repeat;
+	height:7px;width:7px;background-position:-6px 0;
+}
+.icon-mini-edit{
+	background:url('icons/ic.png') no-repeat;
+	height:8px;width:8px;background-position:-13px 0;
+}
+.icon-mini-refresh{
+	background:url('icons/ic.png') no-repeat;
+	height:7px;width:6px;background-position:0 0;
+}
+
+
+/* 上移*/
+.icon-up{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-213px 0;
+}
+/* 下移*/
+.icon-down{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-133px 0;
+}
+/* 甘肃能源 状态指标  图标   chart.png*/
+.icon-indexChartGS{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-613px 0;
+}
+
+
+/* 呼供人资  图标       zangshulai@126.com  begin */
+.icon-hmresSetting{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-437px 0;
+}
+.icon-hmresPublished{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-389px 0;
+}
+.icon-hmresInit{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-373px 0;
+}
+.icon-hmresQuote{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-405px 0;
+}
+.icon-hmresCopy{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-933px 0;
+}
+.icon-hmresChangeBatch{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-517px 0;
+}
+.icon-hmresWord{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-997px 0;
+}
+.icon-hmresExcel{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-789px 0;
+}
+.icon-hmresZip{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-805px 0;
+}
+.icon-hmresPdf{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-949px 0;
+}
+.icon-hmresExport{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-965px 0;
+}
+.icon-hmresZoom{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-309px 0;
+}
+.icon-hmresAnnouncementCancel{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-661px 0;
+}
+.icon-hmresAnnouncementPublic{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-677px 0;
+}
+.icon-hmresAnnouncementShow{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-629px 0;
+}
+/*选择角色--zsd*/
+.icon-hmresSelectRole{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-421px 0;
+}
+/*取消角色--zsd*/
+.icon-hmresUnSelectRole{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-341px 0;
+}
+/* 呼供人资  图标       zangshulai@126.com  end */
+
+/* 动态计划  图标       zangshulai@126.com  begin */
+.icon-changePlanAppCode{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-597px 0;
+}
+.icon-planinfo{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-21px 0;
+}
+.icon-planrecover{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-101px 0;
+}
+/* 动态计划  图标       zangshulai@126.com  end */
+
+/**提交审核***/
+.icon-submit{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-277px 0;
+}
+/*审核--zsd*/
+.icon-check{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-565px 0;
+}
+/*解除审核--zsd*/
+.icon-uncheck{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-101px 0;
+}
+/*复制--zsd*/
+.icon-copy{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-917px 0;
+}
+/*定位--zsd*/
+.icon-position{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-69px 0;
+}
+/*部署--zsd*/
+.icon-arrange{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-693px 0;
+}
+/*回放--zsd*/
+.icon-backplay{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-533px 0;
+}
+/*查看最终--zsd*/
+.icon-lastplay{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-821px 0;
+}
+.icon-flag{
+	background:url('icons/flag.png') no-repeat center center;
+}
+
+/*上一天条--zsd*/
+.icon-aday{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-213px 0;
+}
+/*下一天条--zsd*/
+.icon-pday{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-133px 0;
+}
+/*当前天条--zsd*/
+.icon-cday{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-69px 0;
+}
+/*人员添加*/
+.icon-adduser{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-293px 0;
+}
+/*部门添加*/
+.icon-addorg{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-117px 0;
+}
+/*部门删除*/
+.icon-delorg{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-53px 0;
+}
+
+/*申请启用*/
+.icon-applyin{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-645px 0;
+}
+
+/*申请撤销*/
+.icon-applyout{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-725px 0;
+}
+
+/*归档*/
+.icon-archive{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-741px 0;
+}
+/*人员工时统计*/
+.icon-tj{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-261px 0;
+}
+
+.icon-large-picture{
+	background:url('icons/large_picture.png') no-repeat center center;
+}
+.icon-large-clipart{
+	background:url('icons/large_clipart.png') no-repeat center center;
+}
+.icon-large-shapes{
+	background:url('icons/large_shapes.png') no-repeat center center;
+}
+.icon-large-smartart{
+	background:url('icons/large_smartart.png') no-repeat center center;
+}
+.icon-large-chart{
+	background:url('icons/large_chart.png') no-repeat center center;
+}
+/*动态计划系统主页--zhs*/
+.icon-plan-title{
+	background:url('icons/planAndAssessInCloud/title.png') no-repeat center center;
+}
+.icon-plan-star{
+	background:url('icons/planAndAssessInCloud/star.gif') no-repeat center center;
+}
+.icon-plan-seal{
+	background:url('icons/planAndAssessInCloud/seal.gif') no-repeat center center;
+}
+.icon-plan-clock{
+	background:url('icons/planAndAssessInCloud/clock.gif') no-repeat center center;
+}
+.icon-plan-people{
+	background:url('icons/planAndAssessInCloud/people.gif') no-repeat center center;
+}
+/*重置*/
+.icon-reset{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-453px 0;
+}
+
+/*重置*/
+.icon-log{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-485px 0;
+}
+
+/*人力资源 导入app汇总数据--zangshulai@126.com */
+.icon-importData{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-869px 0;
+}
+/*人力资源 考勤数据计算--zangshulai@126.com */
+.icon-calculateAttendData{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-549px 0;
+}
+/*行政办公 合同关联采购申请--zangshulai@126.com */
+.icon-relatedBuyapp{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-1013px 0;
+}
+
+/*人力资源 考勤汇总app--zangshulai@126.com */
+.icon-appPhone{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-1029px 0;
+}
+/*人力资源 考勤汇总班次--zangshulai@126.com */
+.icon-staffWorkDay{
+	background:url('icons/ic.png') no-repeat;
+	background-position:-1045px 0;
+}
+.icon-compareData{
+	background:url('icons/hrManagement/compareData.png') no-repeat;
+}
+.icon-realData{
+	background:url('icons/hrManagement/realData.png') no-repeat;
+}
+.icon-users{
+	background:url('icons/hrManagement/Users.png') no-repeat;
+}
+.icon-zoomwindows{
+	background:url('icons/humanAndResInhg/zoomwindows.png') no-repeat;
+}
+.icon-printsize{
+	background:url('icons/oaManagement/printsize.png') no-repeat;
+}
+.icon-closeContract{
+	background:url('icons/oaManagement/closeContract.png') no-repeat;
+}
+.icon-openContract{
+	background:url('icons/oaManagement/openContract.png') no-repeat;
+}
+input.inblank{
+	border:1px solid #d3d3d3;
+	font-family:"微软雅黑", "宋体", Arial, sans-serif;
+	font-size: 12px;
+	display: inline-block;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+    overflow: hidden;
+    vertical-align: baseline;
+    height:20px;
+}
+
+input.inblankselect{
+	border:1px solid #d3d3d3;
+	font-family:"微软雅黑", "宋体", Arial, sans-serif;
+	font-size: 12px;
+	display: inline-block;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+    overflow: hidden;
+    vertical-align: baseline;
+    height:20px;
+    width:20px;
+    text-align:center;
+    background-color:#eee;
+    cursor:pointer;
+}
+
+input.selectfdj{
+	background: #fff url(icons/indialog.png) no-repeat right;
+	cursor:pointer;
+	border:1px solid #d3d3d3;
+	height:19px;
+}
+
+input.selectuser{
+	background: #fff url(icons/planAndAssessInCloud/user.gif) no-repeat right;
+	cursor:pointer;
+	border:1px solid #d3d3d3;
+	height:19px;
+}
+input.selectuser_hover{
+	background: #fff url(icons/planAndAssessInCloud/user.gif) no-repeat right;
+	cursor:pointer;
+	border:1px solid #d3d3d3;
+	height:19px;
+}
+input.selectusers{
+	background: #fff url(icons/planAndAssessInCloud/users.gif) no-repeat right;
+	cursor:pointer;
+	border:1px solid #d3d3d3;
+	height:19px;
+}
+input.selectusers_hover{
+	background: #fff url(icons/planAndAssessInCloud/users.gif) no-repeat right;
+	cursor:pointer;
+	border:1px solid #d3d3d3;
+	height:19px;
+}
+
+.icon-pre{
+	background:url('icons/pre.gif') no-repeat;
+	background-position: -1px -1px;
+}
+
+.icon-next{
+	background:url('icons/next.gif') no-repeat;
+	background-position: -1px -1px;
+}
+
+.icon-calculator{background:url('icons/calculator.png') no-repeat;}
