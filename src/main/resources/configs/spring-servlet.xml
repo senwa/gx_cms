@@ -11,18 +11,64 @@
              http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd 
              http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd  
              ">
-
+	<!-- 用于使用@ResponseBody后返回中文避免乱码 -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean id="stringHttpMessageConverter"
+                    class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="writeAcceptCharset" value="false" />
+                    <!-- 用于避免响应头过大 -->
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>text/html;charset=UTF-8</value>
+                            <value>text/javascript;charset=UTF-8</value>
+                            <value>text/css;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+                 <ref bean="mappingJackson2HttpMessageConverter" />  
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="mappingJackson2HttpMessageConverter"  
+        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">  
+        <property name="supportedMediaTypes">  
+            <list>  
+                <value>text/html;charset=UTF-8</value>  
+                <value>text/json;charset=UTF-8</value>  
+                <value>application/json;charset=UTF-8</value>  
+            </list>  
+        </property>  
+    </bean>  
 
    <context:annotation-config/> 
-   <context:component-scan base-package="com.gx181.controller" /> 
+   <context:component-scan base-package="com.gx181" /> 
    <mvc:annotation-driven/>
    <mvc:resources mapping="/styles/**" location="/styles/" /> 
    <mvc:resources mapping="/js/**" location="/js/" /> 
    <mvc:resources mapping="/css/**" location="/css/" /> 
    <mvc:resources mapping="/images/**" location="/images/" /> 
+   <mvc:resources mapping="/tempWork/**" location="/tempWork/" /> 
    <bean
      class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
      <property name="prefix" value="/WEB-INF/views/" /> 
      <property name="suffix" value=".jsp" /> 
+     <property name="order" value="1" /> 
    </bean> 
+   <bean id="prop" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	   <!-- 这里是PropertiesFactoryBean类，有个locations属性，接收一个数组 -->
+	   <property name="locations">
+	       <array>
+	          <value>classpath:configs/config.properties</value>
+	       </array>
+	   </property>
+	    <!-- 设置编码格式 -->  
+	    <property name="fileEncoding" value="UTF-8"></property>  
+	</bean>
+	
+	<bean id="multipartResolver"  
+        class="org.springframework.web.multipart.support.StandardServletMultipartResolver">  
+    </bean>  
 </beans> 

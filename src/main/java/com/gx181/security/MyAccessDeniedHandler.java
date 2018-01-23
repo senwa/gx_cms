@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
 public class MyAccessDeniedHandler implements AccessDeniedHandler {
@@ -29,6 +30,11 @@ public class MyAccessDeniedHandler implements AccessDeniedHandler {
 		try{			
 			if (request != null){
 				request.getSession().invalidate();
+				
+				/*request.getSession().setAttribute(
+						WebAttributes.AUTHENTICATION_EXCEPTION,
+						username + ":用户被禁用");*/
+				
 				request.getRequestDispatcher(accessDeniedUrl).forward(request, response);
 			}
 		}

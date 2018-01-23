@@ -11,6 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 
 public class AdminAuthenticationProvider implements AuthenticationProvider {
@@ -76,9 +77,20 @@ public class AdminAuthenticationProvider implements AuthenticationProvider {
 	        throw new BadCredentialsException("没有分配权限");
 	    }
 	    protected void doLogin(Authentication authentication) throws AuthenticationException {
-	        System.out.println("没实现");
-	    	//TODO:校验用户名密码
-	    	
+	    	//校验用户名密码
+	       String account = authentication.getPrincipal()!=null?String.valueOf(authentication.getPrincipal()):"";
+	       String pwd = authentication.getCredentials()!=null?String.valueOf(authentication.getCredentials()):"";
+	        
+	       UserDetails user = userDetailsService.loadUserByUsername(account);
+	       
+	       //判断
+	       if(user==null){
+	    	   throw new UsernameNotFoundException(account+"不存在");
+	       }
+	       if(user.getPassword()==null||!user.getPassword().equalsIgnoreCase(pwd)){
+	    	   throw new BadCredentialsException("密码不正确");
+	       }
+	        
 	    }
 	    @Override
 	    public boolean supports(Class<?> authentication) {

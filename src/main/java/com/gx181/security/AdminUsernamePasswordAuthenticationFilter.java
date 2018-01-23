@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationServiceExceptio
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.gx181.service.AdminService;
@@ -38,7 +39,9 @@ public class AdminUsernamePasswordAuthenticationFilter extends UsernamePasswordA
 
         // 允许子类设置详细属性
         setDetails(request, authRequest);
-
+       /* request.getSession().setAttribute(
+				WebAttributes.AUTHENTICATION_EXCEPTION,
+				username + ":用户被禁用");*/
         // 运行UserDetailsService的loadUserByUsername 再次封装Authentication
         return this.getAuthenticationManager().authenticate(authRequest);
     }

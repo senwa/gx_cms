@@ -6,7 +6,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 	 
-	 <debug/>     
+	 <!-- <debug/>  -->    
 	<!-- For Web security -->
   	<beans:bean id="myAccessDeniedHandler" class="com.gx181.security.MyAccessDeniedHandler">
 		<beans:property name="accessDeniedUrl" value="/403.jsp"></beans:property>  
@@ -26,7 +26,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
         <custom-filter ref="loginFilter"  position="FORM_LOGIN_FILTER" />
         <logout logout-url="/j_spring_security_logout" logout-success-url="/a.jsp" delete-cookies="JSESSIONID"/>
         <access-denied-handler ref="myAccessDeniedHandler"/>
-         
+		<headers>
+	    	<frame-options policy="SAMEORIGIN"/>
+	    </headers>         
     </http>
   	<!-- 未登录的切入点 -->  
    

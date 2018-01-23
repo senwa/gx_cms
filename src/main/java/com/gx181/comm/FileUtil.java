@@ -49,6 +49,39 @@ public class FileUtil {
         out.close();
     }
 	
+	 public static boolean isNormalFile(File file){
+		 if(file!=null&&file.exists()){
+			 if(file.isDirectory()){
+				 return true;
+			 }else if(file.isFile()&&!file.isHidden()){
+				 String postExt = getFileExt(file);
+				 //只过滤出一下几种类型的文件
+				 if("png".equalsIgnoreCase(postExt)||"jpg".equalsIgnoreCase(postExt)||
+						 "gif".equalsIgnoreCase(postExt)||"css".equalsIgnoreCase(postExt)||
+						 "js".equalsIgnoreCase(postExt)||"html".equalsIgnoreCase(postExt)){
+					 return true;
+				 }
+			 }
+		 }
+		return false;
+	 }
+	 
+	 public static boolean isImage(File file){
+		 if(file!=null&&file.exists()){
+			 if(file.isDirectory()){
+				 return false;
+			 }else if(file.isFile()&&!file.isHidden()){
+				 String postExt = getFileExt(file);
+				 //只过滤出一下几种类型的文件
+				 if("png".equalsIgnoreCase(postExt)||"jpg".equalsIgnoreCase(postExt)||"jpeg".equalsIgnoreCase(postExt)||
+						 "gif".equalsIgnoreCase(postExt)){
+					 return true;
+				 }
+			 }
+		 }
+		return false;
+	 }
+	
 	/**
 	 * 写入文件
 	 * 
