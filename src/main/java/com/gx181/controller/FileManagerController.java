@@ -119,7 +119,7 @@ public class FileManagerController {
 	       // CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver(request.getSession().getServletContext());
 	        //检查form中是否有enctype="multipart/form-data"
 			 ModelAndView mv =new ModelAndView(); 
-		     mv.addObject("info", "文件上传成功"); 
+		     mv.addObject("info", "文件上传成功,请点击左侧对应目录重新加载文件列表"); 
 		     mv.setViewName("/admin/fileUploadSuccess"); 	
 			 Map<String, MultipartFile> files = multiRequest.getFileMap(); 
 			 try{
@@ -162,7 +162,7 @@ public class FileManagerController {
 		String  downCurrentPath= request.getParameter("downCurrentPath");
 		 ModelAndView mv =new ModelAndView(); 
 	     mv.addObject("info", "文件下载成功"); 
-	     mv.setViewName("/admin/fileUploadSuccess"); 	
+	     mv.setViewName("/admin/fileUploadSuccess");
 		try{
 			if(StringUtils.isNotEmpty(downFileName)){
 				//filepath = URLDecoder.decode(filepath,"UTF-8");
@@ -175,9 +175,13 @@ public class FileManagerController {
 				String downloadPath = tempWorkPath+File.separator+downCurrentPath+File.separator+downFileName;
 				//判断文件是否存在，创建文件
 			    File file=new File(downloadPath);
+			    if(!file.exists()){
+			    	throw new java.io.FileNotFoundException("当前下载的文件不存在");
+			    }
+			    
 			  //验证要下载的文件是否存在当前文件夹下，防止linux../../ect/passoword漏洞
 			    File fileParent=new File(tempWorkPath);
-			    if(!file.exists()||!FileUtil.isSubFile(fileParent, file))
+			    if(!FileUtil.isSubFile(fileParent, file))
 			    {
 			    	 throw new Exception("bad guy....");
 			    }
@@ -189,15 +193,86 @@ public class FileManagerController {
 			}
 		}catch(java.io.FileNotFoundException e){
 			e.printStackTrace();
-			System.out.println("没找到路径下的文件:"+downCurrentPath+"/"+downFileName);
+			 logger.warn("没找到路径下的文件:"+downCurrentPath+"/"+downFileName);
 			 mv.addObject("info", "找不到要下载的文件,文件下载失败"); 
 			 mv.addObject("error", e.getMessage()); 
+			 return mv;
+			/*request.setAttribute("info", "找不到要下载的文件,文件下载失败");
+			request.setAttribute("error", e.getMessage());
+			request.getRequestDispatcher("/admin/fileUploadSuccess").forward(request, response);
+		    return;*/
 		} catch (Exception e) {
 			 e.printStackTrace();
 			 mv.addObject("info", "文件下载失败"); 
 			 mv.addObject("error", e.getMessage()); 
+			 return mv;
+			/* request.setAttribute("info", "文件下载失败");
+			 request.setAttribute("error", e.getMessage());
+			request.getRequestDispatcher("/admin/fileUploadSuccess").forward(request, response);
+		    return;*/
 		}
-		return mv;
+		return null;
 	}
 	 
+	 @RequestMapping(value ="/createFolder") 
+	 @ResponseBody 
+	 public Map<String,String> createFolder(HttpServletRequest request, HttpServletResponse response){ 
+		 String createDirPath = request.getParameter("filePath");//images js news这类的
+		 String cmsAbsolutePath = request.getSession().getServletContext().getRealPath("");
+ 	     String tempWorkPath = cmsAbsolutePath+File.separator+"tempWork";//临时目录已经配置成静态资源路径
+ 	     Map<String,String> res = new HashMap<String,String>();
+ 	     res.put("isSuccess", "1");
+ 	     res.put("info", "创建成功");
+ 	     try{
+				if(StringUtils.isNotEmpty(createDirPath)){
+					if(createDirPath.contains("..")){
+		    	    	throw new Exception("bad guy....");
+		    	    }
+					String dirPath = tempWorkPath+File.separator+createDirPath;
+					//判断文件是否存在，创建文件
+				    File dir = new File(dirPath);
+				    if(!dir.exists()||!dir.isDirectory()){
+				    	 if(!dir.mkdirs()){
+				    		 res.put("isSuccess", "0");
+				    		 res.put("info", "创建失败,请重试!");
+						 }
+				    }
+				}
+		 } catch (Exception e) {
+			 e.printStackTrace();
+			 res.put("isSuccess", "0");
+    		 res.put("info", "报错了,创建失败,请联系管理员!");
+		 }
+ 	     return res;
+	 }
+	 
+	 //将当期临时目录下的内容覆盖到官网
+	 @RequestMapping(value ="/synOverCms") 
+	 @ResponseBody 
+	 public Map<String,String> synOverCms(HttpServletRequest request, HttpServletResponse response){ 
+		 String cmsAbsolutePath = request.getSession().getServletContext().getRealPath("");
+ 	     String tempWorkPath = cmsAbsolutePath+File.separator+"tempWork";//临时目录已经配置成静态资源路径
+ 	     Map<String,String> res = new HashMap<String,String>();
+ 	     res.put("isSuccess", "1");
+ 	     res.put("info", "覆盖成功");
+ 	     try{
+				if(StringUtils.isNotEmpty(tempWorkPath)){
+					if(tempWorkPath.contains("..")){
+		    	    	throw new Exception("bad guy....");
+		    	    }
+					 String projectPath = configProperty.getProjectPath();
+				     logger.debug("正式官网项目路径:{}",projectPath);
+				     logger.debug("临时官网项目路径:{}",tempWorkPath);
+				     logger.warn("把临时目录下的内容覆盖到官网正式目录下");
+				     
+					 FileUtil.copyDir(tempWorkPath, projectPath);
+					 logger.warn("完成把临时目录下的内容覆盖到官网正式目录下");
+				}
+		 } catch (Exception e) {
+			 e.printStackTrace();
+			 res.put("isSuccess", "0");
+    		 res.put("info", "报错了,覆盖失败,请联系管理员!");
+		 }
+ 	     return res;
+	 }
 }

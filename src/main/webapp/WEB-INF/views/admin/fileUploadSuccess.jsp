@@ -18,7 +18,9 @@
 <body>
 	<script type='text/javascript'>
         $(function(){
-        	alert("${info}");
+        	if("${info}"){
+        		alert("${info}");
+        	}
         });
      </script>
      

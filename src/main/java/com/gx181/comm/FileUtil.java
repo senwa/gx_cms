@@ -314,12 +314,19 @@ public class FileUtil {
 			String[] children = dir.list();
 			for (int i = 0; i < children.length; i++) {
 				boolean success = deleteDir(new File(dir, children[i]));
+				
 				if (!success) {
+					logger.warn(dir.getName()+"删除失败");
 					return false;
 				}
 			}
 		}
-		return dir.delete();
+		boolean res = dir.delete();
+		if(!res){
+			logger.warn(dir.getName()+"删除失败");
+		}
+		 
+		return res;
 	}
 
 	/**
@@ -751,27 +758,30 @@ public class FileUtil {
 	 */
 	public static void downLoadFileByByte(HttpServletRequest request,HttpServletResponse response,byte[] b,String fileName) throws IOException {
 		OutputStream outp = response.getOutputStream();
-		if (b.length>0) {
-			response.setContentType("APPLICATION/OCTET-STREAM");
-			String filedisplay = fileName;
-			String agent = (String)request.getHeader("USER-AGENT");  
-			//firefox
-			if(agent != null && agent.indexOf("Firefox")!= -1) {   
-				String enableFileName = "=?UTF-8?B?" + (new String(Base64.getBase64(filedisplay))) + "?=";     
-			    response.setHeader("Content-Disposition", "attachment; filename=" + enableFileName);    
+		try{
+			if (b.length>0) {
+				response.setContentType("APPLICATION/OCTET-STREAM");
+				String filedisplay = fileName;
+				String agent = (String)request.getHeader("USER-AGENT");  
+				//firefox
+				if(agent != null && agent.indexOf("Firefox")!= -1) {   
+					String enableFileName = "=?UTF-8?B?" + (new String(Base64.getBase64(filedisplay))) + "?=";     
+				    response.setHeader("Content-Disposition", "attachment; filename=" + enableFileName);    
+				}
+				else{
+					filedisplay=URLEncoder.encode(filedisplay,"utf-8");
+					response.addHeader("Content-Disposition", "attachment;filename=" + filedisplay);
+				}	
+				outp.write(b);
+			} else {
+				throw new IOException("文件不存在");
 			}
-			else{
-				filedisplay=URLEncoder.encode(filedisplay,"utf-8");
-				response.addHeader("Content-Disposition", "attachment;filename=" + filedisplay);
-			}	
-			outp.write(b);
-		} else {
-			outp.write("文件不存在!".getBytes("utf-8"));
-		}
-		if (outp != null) {
-			outp.close();
-			outp = null;
-			response.flushBuffer();
+		}finally{
+			if (outp != null) {
+				outp.close();
+				outp = null;
+				response.flushBuffer();
+			}
 		}
 	}
 	
